@@ -34,8 +34,8 @@ public class W6d5Application implements CommandLineRunner{
 		int y=0;
 		if(y==2) {
 			insertUserss();
+			//insertUser();
 		}
-		//js.loadUserByUsername("ulio5");
 		
 	}
 	public void insertUserss(){
@@ -44,46 +44,8 @@ public class W6d5Application implements CommandLineRunner{
 		User u2 = (User)ctx.getBean("user2");
 		us.save(u1);
 		us.save(u2);
-		SecurityUser ss=new SecurityUser(u1);
-		SecurityUser s3s=new SecurityUser(u2);
 		((AnnotationConfigApplicationContext)ctx).close();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public void insertUsers() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Beans.class);
 		User u1 = (User)ctx.getBean("user");
