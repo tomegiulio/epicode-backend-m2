@@ -55,7 +55,9 @@ public Set<String> Allarm(int id) throws Exception {
 			for(SmokeSystem x:control.getSonde()) {
 				if(x.getSmoke()>0) {
 					String y= "allarme numero: "+x.getId()+" triggerato a latitudine "+x.getLatudine()+" e longitudine "+x.getLogitudine()+" con un livello di fumo "+x.getSmoke()+" URL (http://host/alarm?="+x.getId()+"&lat="+x.getLatudine()+"&lon="+x.getLogitudine()+"&smokelevel="+x.getSmoke();
-				sonde.add(y);
+					System.out.println(" URL (http://localhost:8080/api/control/1/allarm)");
+					sonde.add(y);
+				
 			}}
 			return sonde;
 	}else {

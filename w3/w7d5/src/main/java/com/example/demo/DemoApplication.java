@@ -34,6 +34,7 @@ public class DemoApplication implements CommandLineRunner {
 		if(x==1) {
 			populateDb();
 		}
+		cs.Allarm(1);
 		((AnnotationConfigApplicationContext)ctx).close();
 		
 	}
