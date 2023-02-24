@@ -47,6 +47,21 @@ public Set<SmokeSystem> getAllert(int id) throws Exception {
 		throw new Exception("Get smoke system failed");
 	}
 }
+public Set<String> Allarm(int id) throws Exception {
+	Set<String> sonde= new HashSet<>();
+	Optional<Control> controlResult=cr.findById(id);
+	if(controlResult.isPresent()) {
+			Control control=controlResult.get();
+			for(SmokeSystem x:control.getSonde()) {
+				if(x.getSmoke()>0) {
+					String y= "allarme numero: "+x.getId()+" triggerato a latitudine "+x.getLatudine()+" e longitudine "+x.getLogitudine()+" con un livello di fumo "+x.getSmoke()+" URL (http://host/alarm?="+x.getId()+"&lat="+x.getLatudine()+"&lon="+x.getLogitudine()+"&smokelevel="+x.getSmoke();
+				sonde.add(y);
+			}}
+			return sonde;
+	}else {
+		throw new Exception("Get smoke system failed");
+	}
+}
 
 public Optional<Control> getById(int id) {
 	return cr.findById(id);

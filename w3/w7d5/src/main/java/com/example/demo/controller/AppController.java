@@ -55,5 +55,16 @@ Optional<Set<SmokeSystem>> findAll = Optional.of(cs.getAllert(id));
 	}
 
 }
+@GetMapping(path = "/control/{id}/allarm")
+public ResponseEntity<Set<String>> getAllarm(@PathVariable(required = true) int id) throws Exception {
+Optional<Set<String>> findAll = Optional.of(cs.Allarm(id));	
+
+	if (findAll.isPresent()) {
+		return new ResponseEntity<>(findAll.get(), HttpStatus.OK);
+	} else {
+		return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+	}
+
+}
 
 }
